@@ -16,20 +16,27 @@ document.addEventListener("DOMContentLoaded",function(){
         button.addEventListener('click', function(){
         const value=button.innerText;
 
+            try{
+                if (value == "AC"){
+                    currentvalue="";
+                    display.value = currentvalue;
+                } 
+                
+                else if (value == "="){
+                    evaluate();
+                }
+                
+                else{
+                    currentvalue += value;
+                     display.value=currentvalue;
+                }
+            } catch (error){
+                console.error(error);
+                currentvalue='ERROR';
+                display.value=currentvalue;
+            }
 
-            if (value == "AC"){
-                currentvalue="";
-                display.value = currentvalue;
-            } 
-            
-            else if (value == "="){
-                evaluate();
-            }
-            
-            else{
-                currentvalue += value;
-                 display.value=currentvalue;
-            }
+           
 
 
             
